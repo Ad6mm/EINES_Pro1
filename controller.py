@@ -215,6 +215,7 @@ def _handle_portstats_received (event):
           s2_p1=f.rx_packets
     s2_load = s1_p4-pre_s1_p4
     print "s2_load:", s2_load
+    s2_load = 0
  
   if event.connection.dpid==s3_dpid:
     OWD[2]=0.5*(received_time - sent_time3)
@@ -225,6 +226,7 @@ def _handle_portstats_received (event):
           s3_p1=f.rx_packets
     s3_load = s1_p5-pre_s1_p5
     print "s3_load:", s3_load
+    s3_load = 0
 
   if event.connection.dpid==s4_dpid:
     OWD[3]=0.5*(received_time - sent_time4)
@@ -235,7 +237,7 @@ def _handle_portstats_received (event):
           s4_p1=f.rx_packets
     s4_load = s1_p6-pre_s1_p6
     print "s4_load:", s4_load
-
+    s4_load = 0
  
 def _handle_PacketIn(event):
   global s1_dpid, s2_dpid, s3_dpid, s4_dpid, s5_dpid
